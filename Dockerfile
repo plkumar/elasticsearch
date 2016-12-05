@@ -5,9 +5,14 @@
 #
 
 # Pull base image.
-FROM dockerfile/java:oracle-java8
+#FROM dockerfile/java:oracle-java8
+FROM plkumar/alpine-java-node:latest
 
 ENV ES_PKG_NAME elasticsearch-1.5.0
+
+RUN   apk update \
+  &&   apk add ca-certificates wget \
+  &&   update-ca-certificates 
 
 # Install Elasticsearch.
 RUN \
